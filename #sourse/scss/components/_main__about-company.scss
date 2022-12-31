@@ -1,0 +1,35 @@
+.main__about-company {
+   background: url('/images/top-view-person-writing-on-laptop-with-copy-space.jpg') 0 / cover no-repeat $light-gray;
+   border-radius: 10px;
+   margin: 80px 0 60px;
+   display: grid;
+   grid-template: auto 1fr / 1fr 1fr;
+   padding: 30px;
+   gap: 30px;
+   overflow: hidden;
+
+   &-title {
+      z-index: 2;
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 44px;
+      margin-bottom: 30px;
+   }
+   
+   &-text {
+      z-index: 2;
+      text-align: justify;
+      font-size: 26px;
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+   }
+
+   &-attribution {
+      z-index: 2;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      font-size: 10px;
+      color: $gray;
+   }
+}

@@ -1,0 +1,33 @@
+.main__additional-channels {
+   display: flex;
+   justify-content: center!important;
+   flex-wrap: wrap;
+}
+.main__additional-channel {
+   width: 400px;
+   //box-shadow: 0 0 10px 10px $light-gray;
+   margin: 0 10px 20px;
+   display: flex;
+   flex-direction: column;
+   padding: 20px;
+   &-title {
+      color: $orange;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+   }
+   &-text {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 10px;
+      text-align: justify;
+      flex: 1 1 auto;
+   }
+   &-link {
+      display: block;
+      margin-left: auto;
+      width: 150px;
+      text-align: center;
+      text-transform: uppercase;
+   }
+}

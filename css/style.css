@@ -1,0 +1,580 @@
+@charset "UTF-8";
+/*отступы*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*перещет области*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*отключение обводки*/
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+/*делаем блочными некоторые теги*/
+nav, footer, header, aside {
+  display: block;
+}
+
+/*Уравниваем поведение шрифтов и тд для разных браузеров (также запрещает самовольное увеличени шрифтов (айфон))*/
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*Говоорим тегам наследовать семейство шрифта*/
+input, button, textarea {
+  font-family: inherit;
+  display: block;
+}
+
+/*еще куча фич, таких как отклчение крестиков и отступов в разных браузерах*/
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+/*Обнуляем все заголовки*/
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contant {
+  max-width: 1410px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.container {
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px #f2f2f2;
+}
+
+hr {
+  margin-top: 70px;
+  height: 4px;
+  background: #f2f2f2;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.logo {
+  color: #F20000;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.btn-blue {
+  transition: 0.3s;
+  transition-property: background;
+  color: #f2f2f2;
+  background: rgb(8, 126, 185);
+  padding: 7px;
+  border-radius: 10px;
+}
+.btn-blue:hover {
+  background: rgb(33, 148, 206);
+}
+
+.btn-orange {
+  transition: 0.3s;
+  transition-property: background;
+  color: #f2f2f2;
+  background: #ff6600;
+  padding: 7px;
+  border-radius: 10px;
+}
+.btn-orange:hover {
+  background: rgba(255, 102, 0, 0.7882352941);
+}
+
+.background-image {
+  position: relative;
+  background: url() 100%/cover no-repeat #f2f2f2;
+}
+.background-image:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f2f2f2;
+  opacity: 0.7;
+}
+
+.link {
+  background: no-repeat 0 100%;
+  background-image: linear-gradient(#FFC107, #FFC107);
+  background-position: 50% 33px;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
+}
+.link:hover {
+  background-size: 100% 2px;
+}
+.link-active {
+  background-image: linear-gradient(#F20000, #FFC107);
+  background-size: 100% 2px;
+}
+
+.logo-slogan {
+  position: absolute;
+  bottom: 12px;
+  font-size: 12px;
+  line-height: 0;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #f2f2f2;
+}
+.header__desktop {
+  height: 45px;
+}
+.header__desktop-links-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.header__desktop-link {
+  padding: 10px 0;
+  color: black;
+  font-size: 14px;
+}
+.header__desktop-logo {
+  position: relative;
+  padding-bottom: 30px;
+  background-position: 50% 38px;
+}
+.header__desktop-logo img {
+  max-height: 25px;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.main__title {
+  margin-top: 20px;
+  background: url("/images/802_original.png") no-repeat center center;
+  display: grid;
+  grid-template: 100px/calc(58% - 5px) calc(42% - 5px);
+  gap: 10px;
+  font-weight: 700;
+  line-height: 30px;
+}
+.main__title-title {
+  margin: auto;
+  font-size: 30px;
+  color: #fff;
+}
+.main__title-text {
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+}
+
+.main__about-company {
+  background: url("/images/top-view-person-writing-on-laptop-with-copy-space.jpg") 0/cover no-repeat #f2f2f2;
+  border-radius: 10px;
+  margin: 80px 0 60px;
+  display: grid;
+  grid-template: auto 1fr/1fr 1fr;
+  padding: 30px;
+  gap: 30px;
+  overflow: hidden;
+}
+.main__about-company-title {
+  z-index: 2;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 44px;
+  margin-bottom: 30px;
+}
+.main__about-company-text {
+  z-index: 2;
+  text-align: justify;
+  font-size: 26px;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+.main__about-company-attribution {
+  z-index: 2;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 10px;
+  color: rgb(85, 85, 85);
+}
+
+.main__calculator {
+  padding: 30px 40px 20px;
+  width: 1000px;
+  margin: 0 auto;
+}
+.main__calculator-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+.main__calculator-text {
+  text-align: justify;
+  font-size: 22px;
+  line-height: 30px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.main__calculator-button {
+  display: block;
+  margin-left: auto;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.main__rates {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.main__rate {
+  overflow: hidden;
+  margin: 25px 0;
+}
+.main__rate-title {
+  display: flex;
+}
+.main__rate-title-text {
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #373737;
+  background: #FFC107;
+  border-bottom-right-radius: 10px;
+}
+.main__rate-text {
+  padding: 10px 60px;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 20px;
+}
+.main__rate-text p {
+  margin-bottom: 10px;
+}
+.main__rate-text ul {
+  line-height: 1.5em;
+  padding: 0;
+}
+.main__rate-text li {
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+}
+.main__rate-text li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  height: 5px;
+  width: 5px;
+  border: 1px solid #FFC107;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+}
+.main__rate-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0px 60px 20px;
+}
+.main__rate-price {
+  line-height: 24px;
+  font-size: 20px;
+}
+.main__rate-price span {
+  color: #FFC107;
+  font-weight: 700;
+}
+.main__rate-button {
+  font-size: 16px;
+  padding: 15px;
+}
+
+.main__additional-channels {
+  display: flex;
+  justify-content: center !important;
+  flex-wrap: wrap;
+}
+
+.main__additional-channel {
+  width: 400px;
+  margin: 0 10px 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.main__additional-channel-title {
+  color: #ff6600;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.main__additional-channel-text {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  text-align: justify;
+  flex: 1 1 auto;
+}
+.main__additional-channel-link {
+  display: block;
+  margin-left: auto;
+  width: 150px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.main__reviews {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+
+.main__review {
+  max-width: 500px;
+  padding: 20px;
+  margin: 0 20px 20px;
+}
+.main__review-top {
+  display: flex;
+  margin-bottom: 20px;
+}
+.main__review-img {
+  height: 100px;
+}
+.main__review-img img {
+  height: 100%;
+  border-radius: 10px;
+}
+.main__review-rigth {
+  margin-left: 20px;
+}
+.main__review-double-column {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.main__review-rate {
+  font-weight: 550;
+  color: rgb(85, 85, 85);
+}
+.main__review-person {
+  line-height: 18px;
+}
+.main__review-title {
+  font-size: 16px;
+  font-weight: 550;
+  color: rgb(85, 85, 85);
+  margin-bottom: 10px;
+}
+.main__review-text {
+  text-align: justify;
+  line-height: 16px;
+}
+.main__review-button {
+  width: 500px;
+  margin: 0 20px 20px;
+}
+.main__review-button a {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.main__cooperating {
+  margin-bottom: 40px;
+}
+.main__cooperating-title {
+  font-weight: 400;
+  color: rgb(85, 85, 85);
+  font-size: 24px;
+  text-align: center;
+}
+.main__cooperating-title span {
+  letter-spacing: -1px;
+}
+.main__cooperating-image img {
+  width: 100%;
+}
+.main__cooperating-info {
+  color: rgb(85, 85, 85);
+}
+
+.footer {
+  width: 100%;
+  padding: 30px 0 60px;
+  background-color: #f2f2f2;
+}
+.footer__columns {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__column hr {
+  margin: 25px 0;
+  background-color: rgb(85, 85, 85);
+}
+.footer__logo {
+  position: relative;
+  margin-bottom: 25px;
+}
+.footer__logo a {
+  padding-bottom: 30px;
+  background-position: 50% 33px;
+}
+.footer__logo img {
+  height: 30px;
+}
+.footer__logo p {
+  color: rgb(85, 85, 85);
+  font-size: 14px;
+  bottom: -8px;
+}
+.footer__button {
+  margin-bottom: 10px;
+}
+.footer__button a {
+  display: block;
+  text-align: center;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #f2f2f2;
+}
+.footer__title {
+  font-weight: 600;
+  color: rgb(85, 85, 85);
+  margin-bottom: 10px;
+}
+.footer__links a, .footer__agreement a {
+  display: block;
+  color: rgb(85, 85, 85);
+  padding-bottom: 15px;
+  background-position: 50% 20px;
+}
+.footer__social-networks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+  margin: 0 auto;
+  z-index: 4;
+  background: rgba(85, 85, 85, 0.5058823529);
+  border-radius: 20px 0;
+}
+.contacts img {
+  width: 30px;
+}
+.contacts a {
+  display: block;
+  padding: 5px;
+}
+.contacts__phone span {
+  color: #f2f2f2;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+}
+.contacts__support {
+  position: relative;
+}
+.contacts__support-message {
+  position: absolute;
+  right: -6px;
+  top: -4px;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(255, 102, 0, 0.7882352941);
+  border-radius: 50%;
+  line-height: 20px;
+}
