@@ -5,6 +5,8 @@
 
 
 @import "_less-width-500px";
+@import "general";
+@import "components/header";
 @import "components/_main__title";
 @import "components/main__about-company";
 @import "components/main__calculator";
