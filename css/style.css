@@ -511,6 +511,27 @@ h1 {
 .main__rate {
   overflow: hidden;
   margin: 25px 0;
+  position: relative;
+}
+.main__rate ul {
+  line-height: 1.5em;
+  padding: 0;
+}
+.main__rate li {
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+}
+.main__rate li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  height: 5px;
+  width: 5px;
+  border: 1px solid #FFC107;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
 }
 .main__rate-title {
   display: flex;
@@ -535,33 +556,9 @@ h1 {
 .main__rate-text p {
   margin-bottom: 5px;
 }
-.main__rate-text ul {
-  line-height: 1.5em;
-  padding: 0;
-}
-.main__rate-text li {
-  list-style: none;
-  position: relative;
-  padding-left: 20px;
-}
-.main__rate-text li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  height: 5px;
-  width: 5px;
-  border: 1px solid #FFC107;
-  border-width: 2px 2px 0 0;
-  transform: rotate(45deg);
-}
-.main__rate-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0px 20px 20px;
-}
 .main__rate-price {
+  padding: 0 0 20px 20px;
+  max-width: calc(100% - 135px);
   line-height: 24px;
   font-size: 20px;
 }
@@ -570,9 +567,79 @@ h1 {
   font-weight: 700;
 }
 .main__rate-button {
-  height: 48px;
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 20px;
+  height: 30px;
+  padding: 7px;
+}
+.main__rate-button::after {
+  content: "ПОДРОБНЕЕ";
+  font-size: 14px;
+}
+.main__rate-more {
+  overflow: hidden;
+}
+.main__rate-more h3 {
+  font-weight: 600;
+  color: rgb(85, 85, 85);
+  margin: 5px 0;
+}
+.main__rate-more hr {
+  margin: 20px 0;
+  background: rgba(255, 102, 0, 0.7882352941);
+}
+.main__rate-more p {
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+.main__rate-packages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.main__rate-package {
+  max-width: 250px;
+  border: 3px solid rgba(255, 102, 0, 0.7882352941);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.main__rate-package h4 {
+  text-align: center;
+  color: #ff6600;
+  font-weight: 600;
   font-size: 16px;
-  padding: 15px;
+  margin-bottom: 10px;
+}
+.main__rate-package p {
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+.main__rate-package-price {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.main__rate-toggle {
+  display: none;
+}
+
+.main__rate-toggle ~ .main__rate-more {
+  height: 0;
+  margin: 0;
+  transition: height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.main__rate-toggle:checked ~ .main__rate-more {
+  margin: 10px 20px 80px 20px;
+  height: auto;
+  transition: height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.main__rate-toggle:checked + .main__rate-button::after {
+  content: "СВЕРНУТЬ";
 }
 
 @media (min-width: 750px) {
@@ -584,6 +651,13 @@ h1 {
   }
   .main__rate-text {
     line-height: 18px;
+  }
+  .main__rate-button {
+    padding: 10px;
+    height: 38px;
+  }
+  .main__rate-button::after {
+    font-size: 16px;
   }
 }
 @media (min-width: 900px) {
@@ -597,8 +671,14 @@ h1 {
   .main__rate-text p {
     margin-bottom: 10px;
   }
-  .main__rate-bottom {
-    padding: 0px 60px 20px;
+  .main__rate-price {
+    padding: 0 0 20px 60px;
+  }
+  .main__rate-button {
+    right: 60px;
+  }
+  .main__rate-toggle:checked ~ .main__rate-more {
+    margin: 10px 60px 80px 60px;
   }
 }
 .main__additional-channels {
@@ -635,57 +715,59 @@ h1 {
   text-transform: uppercase;
 }
 
-.main__reviews {
+.main__reviews-content {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin: 0 -20px;
+  margin: 0 -15px;
 }
 
 .main__review {
   max-width: 500px;
   padding: 20px;
-  margin: 0 20px 20px;
-}
-.main__review-top {
-  display: flex;
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas: "img rate" "img date" "person person" "title title" "text text";
 }
 .main__review-img {
+  grid-area: img;
   height: 100px;
+  margin-bottom: 10px;
 }
 .main__review-img img {
   height: 100%;
   border-radius: 10px;
 }
-.main__review-rigth {
-  margin-left: 20px;
-}
-.main__review-double-column {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.main__review-date {
+  grid-area: date;
 }
 .main__review-rate {
+  grid-area: rate;
   font-weight: 550;
   color: rgb(85, 85, 85);
 }
 .main__review-person {
+  grid-area: person;
   line-height: 18px;
+  margin-bottom: 10px;
 }
 .main__review-title {
+  grid-area: title;
   font-size: 16px;
   font-weight: 550;
   color: rgb(85, 85, 85);
   margin-bottom: 10px;
 }
 .main__review-text {
+  grid-area: text;
   text-align: justify;
   line-height: 16px;
 }
 .main__review-button {
+  margin: 0 auto;
   max-width: 500px;
-  margin: 0 20px 20px;
 }
 .main__review-button a {
   display: block;
@@ -693,6 +775,19 @@ h1 {
   text-transform: uppercase;
 }
 
+@media (min-width: 750px) {
+  .main__review {
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "img date rate" "img person person" "title title title" "text text text";
+  }
+  .main__review-img {
+    margin-bottom: 20px;
+  }
+  .main__review-person {
+    margin-bottom: 0px;
+  }
+}
 .main__cooperating {
   margin-bottom: 40px;
 }

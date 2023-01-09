@@ -6,6 +6,27 @@
    &__rate {
       overflow: hidden;
       margin: 25px 0;
+      position: relative;
+      ul {
+         line-height: 1.5em;
+         padding: 0;
+      }  
+      li {
+         list-style: none;
+         position: relative;
+         padding-left: 20px;
+         &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            height: 5px;
+            width: 5px;
+            border: 1px solid $l-yellow;
+            border-width: 2px 2px 0 0;
+            transform: rotate(45deg);
+         }
+      }
       &-title {
          display: flex;
          &-text {
@@ -28,34 +49,12 @@
          p {
             margin-bottom: 5px;
          }
-         ul {
-            line-height: 1.5em;
-            padding: 0;
-         }  
-         li {
-            list-style: none;
-            position: relative;
-            padding-left: 20px;
-            &::before {
-               content: "";
-               position: absolute;
-               left: 0;
-               top: 10px;
-               height: 5px;
-               width: 5px;
-               border: 1px solid $l-yellow;
-               border-width: 2px 2px 0 0;
-               transform: rotate(45deg);
-            }
-         }
-      }
-      &-bottom {
-         display: flex;
-         justify-content: space-between;
-         align-items: flex-end;
-         padding: 0px 20px 20px;
+        
       }
       &-price {
+         padding: 0 0 20px 20px;
+
+         max-width: calc(100% - 135px);
          line-height: 24px;
          font-size: 20px;
          span {
@@ -64,11 +63,80 @@
          }
       }
       &-button {
-         //margin-top: 10px;
-         height: 48px;
-         font-size: 16px;
-         padding: 15px;
+         position: absolute;
+         z-index: 1;
+         right: 20px;
+         bottom: 20px;
+         height: 30px;
+         padding: 7px;
+         &::after {
+            content: 'ПОДРОБНЕЕ';
+            font-size: 14px;
+         }
       }
+      &-more {
+         overflow: hidden;
+         h3 {
+            font-weight: 600;
+            color: $gray;
+            margin: 5px 0;
+         }
+         hr {
+            margin: 20px 0;
+            background: $orange-75;
+         }
+         p {
+            line-height: 16px;
+            margin-bottom: 10px;
+         }
+      }
+      &-packages {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-around;
+      }
+      &-package {
+         max-width: 250px;
+         border: 3px solid $orange-75;
+         padding: 10px;
+         margin: 10px;
+         border-radius: 5px;
+         h4 {
+            text-align: center;
+            color: $orange;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+         }
+         p {
+            line-height: 16px;
+            margin-bottom: 10px;
+         }
+         &-price {
+            font-size: 16px;
+            text-align: center;
+            font-weight: 600;
+         }
+      }
+   }
+}
+
+.main__rate-toggle {
+   display: none;
+}
+.main__rate-toggle ~ .main__rate-more {
+   height: 0;
+   margin: 0;
+   transition: height .3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.main__rate-toggle:checked {
+   & ~ .main__rate-more {
+      margin: 10px 20px 80px 20px;
+      height: auto;
+      transition: height .3s cubic-bezier(0.23, 1, 0.32, 1);
+   }
+   & + .main__rate-button::after {
+      content: 'СВЕРНУТЬ';
    }
 }
 
@@ -82,6 +150,13 @@
       }
       &-text {
          line-height: 18px;
+      }
+      &-button {
+         padding: 10px;
+         height: 38px;
+         &::after {
+            font-size: 16px;
+         }
       }
    }
 }
@@ -98,11 +173,14 @@
             margin-bottom: 10px;
          }
       }
-      &-bottom {
-         padding: 0px 60px 20px;
+      &-price {
+         padding: 0 0 20px 60px;
       }
-      //&-button {
-      //   margin-top: 0px;
-      //}
+      &-button {
+         right: 60px;
+      }
+   }
+   .main__rate-toggle:checked ~ .main__rate-more {
+      margin: 10px 60px 80px 60px;
    }
 }
