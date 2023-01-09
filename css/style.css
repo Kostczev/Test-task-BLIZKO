@@ -390,7 +390,7 @@ h1 {
 }
 
 .main__about-company {
-  background: url("../images/top-view-person-writing-on-laptop-with-copy-space.jpg") 0/cover no-repeat #f2f2f2;
+  background: url("./images/top-view-person-writing-on-laptop-with-copy-space.jpg") 0/cover no-repeat #f2f2f2;
   border-radius: 10px;
   margin: 80px -15px 30px;
   display: flex;
